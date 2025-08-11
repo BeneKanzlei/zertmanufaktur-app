@@ -7,6 +7,7 @@ import ProfileCard from '@/components/settings/profile-card'
 import PersonalInfoCard from '@/components/settings/personal-info-card'
 import CompanyInfoCard from '@/components/settings/company-info-card'
 import NotificationsCard from '@/components/settings/notifications-card'
+import PasswordEmailCard from '@/components/settings/password-email-card'
 
 export default function Einstellungen() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -31,6 +32,7 @@ export default function Einstellungen() {
               <ProfileCard />
               <PersonalInfoCard />
               <CompanyInfoCard />
+              <PasswordEmailCard />
               <NotificationsCard />
             </div>
           </div>

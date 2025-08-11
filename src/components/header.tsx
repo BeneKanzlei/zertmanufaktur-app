@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { supabase } from '@/lib/supabase'
+import { supabase } from '@/lib/supabase/client'
 import Breadcrumb from './breadcrumb'
-import Logo from './Logo'
 
 interface HeaderProps {
   onSidebarToggle: () => void
@@ -94,10 +93,6 @@ export default function Header({ onSidebarToggle, breadcrumbItems }: HeaderProps
         </button>
 
         <div className="h-6 w-px bg-gray-200 lg:hidden"></div>
-
-        <div className="flex items-center">
-          <Logo size="sm" className="h-8 w-auto" />
-        </div>
 
         <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
           <form action="#" method="GET" className="grid flex-1 grid-cols-1">
