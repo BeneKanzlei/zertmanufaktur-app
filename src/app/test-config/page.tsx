@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { supabase } from '@/lib/supabase'
+import { supabase } from '@/lib/supabase/client'
 
 export default function TestConfigPage() {
   const [configStatus, setConfigStatus] = useState<{
@@ -12,7 +12,10 @@ export default function TestConfigPage() {
     resend: 'loading'
   })
   const [error, setError] = useState('')
-  const [details, setDetails] = useState<any>({})
+  const [details, setDetails] = useState<{
+    supabase?: string
+    resend?: string
+  }>({})
 
   useEffect(() => {
     testConfigurations()
@@ -27,16 +30,16 @@ export default function TestConfigPage() {
       if (error) {
         console.error('❌ Supabase-Fehler:', error)
         setConfigStatus(prev => ({ ...prev, supabase: 'error' }))
-        setDetails(prev => ({ ...prev, supabase: error.message }))
+        setDetails((prev: { supabase?: string; resend?: string }) => ({ ...prev, supabase: error.message }))
       } else {
         console.log('✅ Supabase-Konfiguration erfolgreich')
         setConfigStatus(prev => ({ ...prev, supabase: 'success' }))
-        setDetails(prev => ({ ...prev, supabase: 'Verbindung erfolgreich' }))
+        setDetails((prev: { supabase?: string; resend?: string }) => ({ ...prev, supabase: 'Verbindung erfolgreich' }))
       }
     } catch (err) {
       console.error('❌ Supabase-Exception:', err)
       setConfigStatus(prev => ({ ...prev, supabase: 'error' }))
-      setDetails(prev => ({ ...prev, supabase: err instanceof Error ? err.message : 'Unbekannter Fehler' }))
+              setDetails((prev: { supabase?: string; resend?: string }) => ({ ...prev, supabase: err instanceof Error ? err.message : 'Unbekannter Fehler' }))
     }
 
     // Test Resend (nur Konfiguration, kein E-Mail-Versand)
@@ -55,12 +58,12 @@ export default function TestConfigPage() {
       
       console.log('✅ Resend-Konfiguration erfolgreich')
       setConfigStatus(prev => ({ ...prev, resend: 'success' }))
-      setDetails(prev => ({ ...prev, resend: 'API-Schlüssel konfiguriert' }))
+      setDetails((prev: { supabase?: string; resend?: string }) => ({ ...prev, resend: 'API-Schlüssel konfiguriert' }))
       
     } catch (err) {
       console.error('❌ Resend-Fehler:', err)
       setConfigStatus(prev => ({ ...prev, resend: 'error' }))
-      setDetails(prev => ({ ...prev, resend: err instanceof Error ? err.message : 'Unbekannter Fehler' }))
+      setDetails((prev: { supabase?: string; resend?: string }) => ({ ...prev, resend: err instanceof Error ? err.message : 'Unbekannter Fehler' }))
     }
   }
 
