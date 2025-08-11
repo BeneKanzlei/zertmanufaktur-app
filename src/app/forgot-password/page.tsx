@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { resetPassword } from '@/lib/supabase'
+import { resetPassword } from '@/lib/supabase/auth'
 
 export default function ForgotPasswordPage() {
   const [isLoading, setIsLoading] = useState(false)

@@ -98,3 +98,20 @@ export const updateUserProfile = async (updates: any) => {
   })
   return { data, error }
 }
+
+// Reset password
+export const resetPassword = async (email: string) => {
+  console.log('🔐 Supabase resetPassword aufgerufen mit:', { email })
+  
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}/reset-password`
+  })
+  
+  console.log('🔐 Supabase resetPassword Ergebnis:', { 
+    success: !error, 
+    data, 
+    error: error?.message 
+  })
+  
+  return { data, error }
+}
