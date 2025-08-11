@@ -4,8 +4,42 @@ export interface User {
   email: string
   firstName: string
   lastName: string
-  company?: string
+  phone?: string
+  is_registration?: boolean
+  firmen_id?: string
   created_at: string
+}
+
+// Company types
+export interface Company {
+  id: string
+  firmenname: string
+  firmenanschrift: string
+  firmen_land: string
+  firmen_bundesland: string
+  firmen_plz: string
+  firmen_ort: string
+  firmen_mail: string
+  firmen_telefon?: string
+  firmen_nummer: string
+  firmen_ust_id?: string
+  firmen_logo_url?: string
+  created_at: string
+  updated_at: string
+}
+
+export interface CompanyFormData {
+  firmenname: string
+  firmenanschrift: string
+  firmen_plz: string
+  firmen_ort: string
+  firmen_mail: string
+  firmen_telefon: string
+  firmen_ust_id?: string
+  firmen_logo?: File | null
+  land?: string
+  bundesland?: string
+  telefon_laendervorwahl?: string
 }
 
 // AZAV Calculation types
