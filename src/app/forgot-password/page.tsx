@@ -64,7 +64,7 @@ export default function ForgotPasswordPage() {
             {/* Logo mittig über dem Bereich */}
             <div className="flex justify-center mb-8">
               <Image 
-                src="/Logo_header.svg" 
+                src="/Zertmanufaktur.svg" 
                 alt="Zertmanufaktur Logo" 
                 width={120} 
                 height={120} 
@@ -124,7 +124,7 @@ export default function ForgotPasswordPage() {
           {/* Logo mittig über dem Bereich */}
           <div className="flex justify-center mb-8">
             <Image 
-              src="/Logo_header.svg" 
+              src="/Zertmanufaktur.svg" 
               alt="Zertmanufaktur Logo" 
               width={120} 
               height={120} 
