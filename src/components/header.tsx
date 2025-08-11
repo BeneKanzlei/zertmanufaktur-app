@@ -96,7 +96,7 @@ export default function Header({ onSidebarToggle, breadcrumbItems }: HeaderProps
         <div className="h-6 w-px bg-gray-200 lg:hidden"></div>
 
         <div className="flex items-center">
-          <Logo size={40} className="h-8 w-auto" showContainer={false} />
+          <Logo size="sm" className="h-8 w-auto" />
         </div>
 
         <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
