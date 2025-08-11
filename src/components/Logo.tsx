@@ -18,7 +18,7 @@ export default function Logo({ className = '', showText = false, size = 'md' }: 
     <Link href="/" className={`flex items-center pt-2 ${className}`}>
       <div className={`relative ${sizeClasses[size]}`}>
         <Image
-          src="/Logo_header.png"
+          src="/Zertmanufaktur.svg"
           alt="Zertmanufaktur Logo"
           fill
           className="object-contain"

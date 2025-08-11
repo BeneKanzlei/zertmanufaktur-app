@@ -4,6 +4,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { signUp } from '@/lib/supabase'
+import { signUpDev } from '@/lib/supabase/auth-dev'
+import { signUpSimple } from '@/lib/supabase/auth-simple'
+import { supabase } from '@/lib/supabase'
 import Image from 'next/image'
 
 // DACH Länderliste
@@ -37,16 +40,109 @@ export default function RegisterPage() {
     setSuccess(false)
 
     try {
-      const { data, error } = await signUp(formData.email, formData.password, {
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        company: formData.company,
-        phone: `${formData.phoneCountry}${formData.phoneNumber}`,
+      console.log('🚀 Starte Registrierung für:', formData.email)
+      
+      // Direkte Supabase-Registrierung mit Benutzerdaten
+      console.log('🔐 Direkte Supabase-Registrierung mit Benutzerdaten...')
+      const { data, error } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          data: {
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+            phone: `${formData.phoneCountry}${formData.phoneNumber}`,
+            full_name: `${formData.firstName} ${formData.lastName}`,
+            company_name: formData.company || ''
+          }
+        }
       })
       
+      // Falls erfolgreich, erstelle Profil manuell
+      if (data?.user && !error) {
+        console.log('✅ Benutzer erfolgreich erstellt mit Metadaten')
+        
+        // Profil manuell erstellen (falls Trigger nicht funktioniert)
+        console.log('🔧 Erstelle Profil manuell...')
+        const { data: profileData, error: profileError } = await supabase
+          .from('profiles')
+          .insert({
+            id: data.user.id,
+            email: formData.email,
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+            full_name: `${formData.firstName} ${formData.lastName}`,
+            company_name: formData.company || '',
+            phone: `${formData.phoneCountry}${formData.phoneNumber}`,
+            is_registration: true,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          })
+          .select()
+          .single()
+        
+        if (profileError) {
+          console.error('⚠️ Fehler beim Erstellen des Profils:', profileError)
+          // Das ist kein kritischer Fehler, da der Benutzer bereits erstellt wurde
+        } else {
+          console.log('✅ Profil erfolgreich erstellt:', profileData)
+        }
+      }
+      
       if (error) {
-        setError(error.message)
-      } else if (data.user) {
+        console.error('❌ Registrierungsfehler:', error)
+        
+        // Benutzerfreundliche Fehlermeldungen
+        let errorMessage = error.message
+        if (error.message.includes('User already registered')) {
+          errorMessage = 'Diese E-Mail-Adresse ist bereits registriert. Bitte melden Sie sich an oder verwenden Sie eine andere E-Mail-Adresse.'
+        } else if (error.message.includes('Password should be at least')) {
+          errorMessage = 'Das Passwort muss mindestens 6 Zeichen lang sein.'
+        } else if (error.message.includes('Invalid email')) {
+          errorMessage = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+        } else if (error.message.includes('Supabase-Konfiguration')) {
+          errorMessage = 'Die Datenbank-Konfiguration ist nicht korrekt. Bitte kontaktieren Sie den Administrator.'
+        } else if (error.message.includes('Email not confirmed')) {
+          errorMessage = 'Bitte bestätigen Sie Ihre E-Mail-Adresse, bevor Sie sich anmelden.'
+        }
+        
+        setError(errorMessage)
+      } else if (data?.user) {
+        console.log('✅ Registrierung erfolgreich für:', data.user.email)
+        
+        // Profil manuell erstellen (falls Trigger nicht funktioniert)
+        try {
+          console.log('🔧 Erstelle Profil manuell...')
+          
+          const profileResponse = await fetch('/api/create-profile-after-registration', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              userId: data.user.id,
+              userData: {
+                first_name: formData.firstName,
+                last_name: formData.lastName,
+                phone: `${formData.phoneCountry}${formData.phoneNumber}`
+              }
+            }),
+          })
+          
+          const profileData = await profileResponse.json()
+          console.log('🔧 Profil-Erstellung Antwort:', profileData)
+          
+          if (!profileResponse.ok) {
+            console.error('⚠️ Profil-Erstellung Fehler:', profileData)
+            // Profil-Erstellung-Fehler soll die Registrierung nicht blockieren
+          } else {
+            console.log('✅ Profil erfolgreich erstellt!')
+          }
+        } catch (profileError) {
+          console.error('❌ Fehler beim Erstellen des Profils:', profileError)
+          // Profil-Erstellung-Fehler soll die Registrierung nicht blockieren
+        }
+        
         // Registrierungsbenachrichtigung senden
         try {
           const notificationPayload = {
@@ -57,7 +153,7 @@ export default function RegisterPage() {
             company: formData.company
           }
           
-          console.log('Sende Registrierungsbenachrichtigung mit Payload:', notificationPayload)
+          console.log('📧 Sende Registrierungsbenachrichtigung mit Payload:', notificationPayload)
           
           const notificationResponse = await fetch('/api/registration-notification', {
             method: 'POST',
@@ -68,16 +164,16 @@ export default function RegisterPage() {
           })
           
           const notificationData = await notificationResponse.json()
-          console.log('Registrierungsbenachrichtigung Antwort:', notificationData)
+          console.log('📧 Registrierungsbenachrichtigung Antwort:', notificationData)
           
           if (!notificationResponse.ok) {
-            console.error('Registrierungsbenachrichtigung Fehler:', notificationData)
+            console.error('⚠️ Registrierungsbenachrichtigung Fehler:', notificationData)
             // Registrierungsbenachrichtigung-Fehler soll die Registrierung nicht blockieren
           } else {
-            console.log('Registrierungsbenachrichtigung erfolgreich gesendet!')
+            console.log('✅ Registrierungsbenachrichtigung erfolgreich gesendet!')
           }
         } catch (notificationError) {
-          console.error('Fehler beim Senden der Registrierungsbenachrichtigung:', notificationError)
+          console.error('❌ Fehler beim Senden der Registrierungsbenachrichtigung:', notificationError)
           // Registrierungsbenachrichtigung-Fehler soll die Registrierung nicht blockieren
         }
         
@@ -86,6 +182,7 @@ export default function RegisterPage() {
         // router.push('/verify-email')
       }
     } catch (err) {
+      console.error('❌ Unerwarteter Registrierungsfehler:', err)
       setError('Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.')
     } finally {
       setIsLoading(false)
@@ -119,12 +216,12 @@ export default function RegisterPage() {
           </Link>
         </div>
 
-        <div className="flex w-1/2 flex-col justify-center px-4 py-12 sm:px-6 lg:px-20 xl:px-24">
+        <div className="flex w-full md:w-1/2 flex-col justify-center px-4 py-12 sm:px-6 lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             {/* Logo mittig über dem Registrierungs-Bereich */}
             <div className="flex justify-center mb-8">
               <Image 
-                src="/Logo_header.svg" 
+                src="/Zertmanufaktur.svg" 
                 alt="Zertmanufaktur Logo" 
                 width={120} 
                 height={120} 
@@ -156,7 +253,7 @@ export default function RegisterPage() {
             </div>
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="hidden md:block w-1/2">
           <img 
             src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80" 
             alt="" 
@@ -179,12 +276,12 @@ export default function RegisterPage() {
         </Link>
       </div>
 
-      <div className="flex w-1/2 flex-col justify-center px-4 py-12 sm:px-6 lg:px-20 xl:px-24">
+      <div className="flex w-full md:w-1/2 flex-col justify-center px-4 py-12 sm:px-6 lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
           {/* Logo mittig über dem Registrierungs-Bereich */}
           <div className="flex justify-center mb-8">
             <Image 
-              src="/Logo_header.svg" 
+              src="/Zertmanufaktur.svg" 
               alt="Zertmanufaktur Logo" 
               width={120} 
               height={120} 
@@ -454,7 +551,7 @@ export default function RegisterPage() {
           </div>
         </div>
       </div>
-      <div className="w-1/2">
+      <div className="hidden md:block w-1/2">
         <img 
           src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80" 
           alt="" 

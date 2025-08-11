@@ -46,7 +46,7 @@ export default function UeberUnsPage() {
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Zertmanufaktur</span>
-              <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-8 w-auto" />
+              <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-8 w-auto" />
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -88,7 +88,7 @@ export default function UeberUnsPage() {
               <div className="flex items-center justify-between">
                 <Link href="/" className="-m-1.5 p-1.5">
                   <span className="sr-only">Zertmanufaktur</span>
-                  <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-8 w-auto" />
+                  <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-8 w-auto" />
                 </Link>
                 <button 
                   type="button" 
@@ -146,8 +146,8 @@ export default function UeberUnsPage() {
           <div className="mx-auto max-w-2xl pt-24 text-center sm:pt-40">
             <h1 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Über uns</h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              Wir sind ein kreatives Team, das leidenschaftlich daran arbeitet, Ideen in Erlebnisse zu verwandeln. 
-              Seit unserer Gründung verfolgen wir das Ziel, Qualität, Innovation und Menschlichkeit in Einklang zu bringen.
+              Zertmanufaktur SIA ist Ihr vertrauensvoller Partner für professionelle AZAV-Zertifizierungen. 
+              Seit unserer Gründung verfolgen wir das Ziel, Bildungsträgern innovative Lösungen für ihre Weiterbildungsmaßnahmen zu bieten.
             </p>
           </div>
         </div>
@@ -157,30 +157,30 @@ export default function UeberUnsPage() {
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="grid max-w-xl grid-cols-1 gap-8 text-base/7 text-gray-300 lg:max-w-none lg:grid-cols-2">
               <div>
-                <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
-                <p className="mt-8">Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas.</p>
+                <p>Zertmanufaktur SIA wurde mit der Vision gegründet, die komplexen Prozesse der AZAV-Zertifizierung zu vereinfachen. Wir verstehen die Herausforderungen, vor denen Bildungsträger stehen, wenn sie ihre Weiterbildungsmaßnahmen für die öffentliche Förderung qualifizieren möchten.</p>
+                <p className="mt-8">Unser Expertenteam kombiniert tiefgreifendes Wissen über das deutsche Bildungssystem mit modernster Technologie, um Ihnen maßgeschneiderte Lösungen zu bieten. Von der ersten Kalkulation bis zur finalen Genehmigung begleiten wir Sie durch den gesamten Prozess.</p>
               </div>
               <div>
-                <p>Erat pellentesque dictumst ligula porttitor risus eget et eget. Ultricies tellus felis id dignissim eget. Est augue maecenas risus nulla ultrices congue nunc tortor. Enim et nesciunt doloremque nesciunt voluptate.</p>
-                <p className="mt-8">Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.</p>
+                <p>Mit unserer innovativen Plattform integrieren wir automatisch das Buch der Berufe und den BDKS-Rahmen in Ihre Kalkulationen. Dies garantiert nicht nur höchste Genauigkeit, sondern spart Ihnen auch wertvolle Zeit und Ressourcen.</p>
+                <p className="mt-8">Unsere DSGVO-konforme Lösung bietet Ihnen die Sicherheit, die Sie benötigen, während unsere benutzerfreundliche Oberfläche sicherstellt, dass Sie sich auf das Wesentliche konzentrieren können: Ihre Teilnehmer und deren Erfolg.</p>
               </div>
             </div>
             <dl className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mt-28 lg:grid-cols-4">
               <div className="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
-                <dt className="text-base/7 text-gray-300">Business was founded</dt>
-                <dd className="text-3xl font-semibold tracking-tight text-white">2012</dd>
+                <dt className="text-base/7 text-gray-300">Unternehmen gegründet</dt>
+                <dd className="text-3xl font-semibold tracking-tight text-white">2020</dd>
               </div>
               <div className="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
-                <dt className="text-base/7 text-gray-300">People on the team</dt>
-                <dd className="text-3xl font-semibold tracking-tight text-white">120+</dd>
+                <dt className="text-base/7 text-gray-300">Mitarbeiter im Team</dt>
+                <dd className="text-3xl font-semibold tracking-tight text-white">25+</dd>
               </div>
               <div className="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
-                <dt className="text-base/7 text-gray-300">Users on the platform</dt>
-                <dd className="text-3xl font-semibold tracking-tight text-white">250k</dd>
+                <dt className="text-base/7 text-gray-300">Bildungsträger auf der Plattform</dt>
+                <dd className="text-3xl font-semibold tracking-tight text-white">500+</dd>
               </div>
               <div className="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
-                <dt className="text-base/7 text-gray-300">Paid out to creators</dt>
-                <dd className="text-3xl font-semibold tracking-tight text-white">$70M</dd>
+                <dt className="text-base/7 text-gray-300">Erfolgreiche Zertifizierungen</dt>
+                <dd className="text-3xl font-semibold tracking-tight text-white">2.500+</dd>
               </div>
             </dl>
           </div>
@@ -195,15 +195,15 @@ export default function UeberUnsPage() {
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:max-w-7xl">
             <div className="max-w-4xl">
-              <p className="text-base/7 font-semibold text-indigo-400">Über uns</p>
-              <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Auf Mission, Remote-Teams zu stärken</h2>
-              <p className="mt-6 text-xl/8 text-balance text-gray-300">Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas.</p>
+              <p className="text-base/7 font-semibold text-indigo-400">Unsere Mission</p>
+              <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Bildungsträger bei AZAV-Zertifizierungen unterstützen</h2>
+              <p className="mt-6 text-xl/8 text-balance text-gray-300">Wir entwickeln innovative Lösungen, die Bildungsträgern helfen, ihre Weiterbildungsmaßnahmen erfolgreich für die öffentliche Förderung zu qualifizieren und dabei Zeit und Ressourcen zu sparen.</p>
             </div>
             <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
               <div className="lg:pr-8">
                 <h3 className="text-2xl font-semibold tracking-tight text-pretty text-white">Unsere Mission</h3>
-                <p className="mt-6 text-base/7 text-gray-300">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
-                <p className="mt-8 text-base/7 text-gray-300">Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.</p>
+                <p className="mt-6 text-base/7 text-gray-300">Zertmanufaktur SIA hat es sich zur Aufgabe gemacht, die komplexen Prozesse der AZAV-Zertifizierung zu vereinfachen. Wir glauben daran, dass jeder Bildungsträger die Möglichkeit haben sollte, seine Weiterbildungsmaßnahmen für die öffentliche Förderung zu qualifizieren, ohne dabei in bürokratischen Hürden zu ersticken.</p>
+                <p className="mt-8 text-base/7 text-gray-300">Durch die Kombination von tiefgreifendem Fachwissen und modernster Technologie schaffen wir eine Plattform, die nicht nur präzise Kalkulationen ermöglicht, sondern auch den gesamten Zertifizierungsprozess transparent und nachvollziehbar macht. Unser Ziel ist es, Bildungsträgern dabei zu helfen, sich auf das zu konzentrieren, was wirklich wichtig ist: die Qualität ihrer Bildungsangebote.</p>
               </div>
               <div className="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto">
                 <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
@@ -226,20 +226,20 @@ export default function UeberUnsPage() {
                 <hr className="mt-6 border-t border-gray-700" />
                 <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
                   <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-700 pb-4">
-                    <dt className="text-sm/6 text-gray-400">Investiert</dt>
-                    <dd className="order-first text-6xl font-semibold tracking-tight text-white">€<span>150</span>M</dd>
+                    <dt className="text-sm/6 text-gray-400">Investiert in Entwicklung</dt>
+                    <dd className="order-first text-6xl font-semibold tracking-tight text-white">€<span>2</span>M</dd>
                   </div>
                   <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-700 pb-4">
-                    <dt className="text-sm/6 text-gray-400">Unternehmen</dt>
-                    <dd className="order-first text-6xl font-semibold tracking-tight text-white"><span>30</span>K</dd>
+                    <dt className="text-sm/6 text-gray-400">Bildungsträger</dt>
+                    <dd className="order-first text-6xl font-semibold tracking-tight text-white"><span>500</span>+</dd>
                   </div>
                   <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-700 max-sm:pb-4">
-                    <dt className="text-sm/6 text-gray-400">Abgeschlossene Deals</dt>
-                    <dd className="order-first text-6xl font-semibold tracking-tight text-white"><span>1.5</span>M</dd>
+                    <dt className="text-sm/6 text-gray-400">Abgeschlossene Zertifizierungen</dt>
+                    <dd className="order-first text-6xl font-semibold tracking-tight text-white"><span>2.5</span>K</dd>
                   </div>
                   <div className="flex flex-col gap-y-2">
-                    <dt className="text-sm/6 text-gray-400">Generierte Leads</dt>
-                    <dd className="order-first text-6xl font-semibold tracking-tight text-white"><span>200</span>M</dd>
+                    <dt className="text-sm/6 text-gray-400">Zeitersparnis pro Antrag</dt>
+                    <dd className="order-first text-6xl font-semibold tracking-tight text-white"><span>80</span>%</dd>
                   </div>
                 </dl>
               </div>
@@ -251,7 +251,7 @@ export default function UeberUnsPage() {
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Unsere Werte</h2>
-            <p className="mt-6 text-lg/8 text-gray-300">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis.</p>
+            <p className="mt-6 text-lg/8 text-gray-300">Diese Grundsätze leiten unser Handeln und prägen unsere Beziehungen zu Kunden, Partnern und der Gesellschaft.</p>
           </div>
           <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base/7 text-gray-400 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-16">
             <div className="relative pl-9">
@@ -260,54 +260,36 @@ export default function UeberUnsPage() {
                   <path d="M4.606 12.97a.75.75 0 0 1-.134 1.051 2.494 2.494 0 0 0-.93 2.437 2.494 2.494 0 0 0 2.437-.93.75.75 0 1 1 1.186.918 3.995 3.995 0 0 1-4.482 1.332.75.75 0 0 1-.461-.461 3.994 3.994 0 0 1 1.332-4.482.75.75 0 0 1 1.052.134Z" clipRule="evenodd" fillRule="evenodd" />
                   <path d="M5.752 12A13.07 13.07 0 0 0 8 14.248v4.002c0 .414.336.75.75.75a5 5 0 0 0 4.797-6.414 12.984 12.984 0 0 0 5.45-10.848.75.75 0 0 0-.735-.735 12.984 12.984 0 0 0-10.849 5.45A5 5 0 0 0 1 11.25c.001.414.337.75.751.75h4.002ZM13 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" clipRule="evenodd" fillRule="evenodd" />
                 </svg>
-                Be world-class.
+                Höchste Qualität.
               </dt>
-              <dd className="inline">Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.</dd>
+              <dd className="inline">Wir streben in allem, was wir tun, nach Exzellenz und setzen dabei auf bewährte Methoden und innovative Lösungen.</dd>
             </div>
             <div className="relative pl-9">
               <dt className="inline font-semibold text-white">
                 <svg viewBox="0 0 20 20" fill="currentColor" className="absolute top-1 left-1 size-5 text-indigo-500">
                   <path d="M11 2a1 1 0 1 0-2 0v6.5a.5.5 0 0 1-1 0V3a1 1 0 1 0-2 0v5.5a.5.5 0 0 1-1 0V5a1 1 0 1 0-2 0v7a7 7 0 1 0 14 0V8a1 1 0 1 0-2 0v3.5a.5.5 0 0 1-1 0V3a1 1 0 1 0-2 0v5.5a.5.5 0 0 1-1 0V2Z" clipRule="evenodd" fillRule="evenodd" />
                 </svg>
-                Take responsibility.
+                Verantwortung übernehmen.
               </dt>
-              <dd className="inline">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</dd>
+              <dd className="inline">Wir stehen zu unseren Versprechen und übernehmen die Verantwortung für die Qualität unserer Dienstleistungen und deren Auswirkungen.</dd>
             </div>
             <div className="relative pl-9">
               <dt className="inline font-semibold text-white">
                 <svg viewBox="0 0 20 20" fill="currentColor" className="absolute top-1 left-1 size-5 text-indigo-500">
                   <path d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM1.49 15.326a.78.78 0 0 1-.358-.442 3 3 0 0 1 4.308-3.516 6.484 6.484 0 0 0-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 0 1-2.07-.655ZM16.44 15.98a4.97 4.97 0 0 0 2.07-.654.78.78 0 0 0 .357-.442 3 3 0 0 0-4.308-3.517 6.484 6.484 0 0 1 1.907 3.96 2.32 2.32 0 0 1-.026.654ZM18 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM5.304 16.19a.844.844 0 0 1-.277-.71 5 5 0 0 1 9.947 0 .843.843 0 0 1-.277.71A6.975 6.975 0 0 1 10 18a6.974 6.974 0 0 1-4.696-1.81Z" />
                 </svg>
-                Be supportive.
+                Unterstützend sein.
               </dt>
-              <dd className="inline">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus voluptas blanditiis et.</dd>
-            </div>
-            <div className="relative pl-9">
-              <dt className="inline font-semibold text-white">
-                <svg viewBox="0 0 20 20" fill="currentColor" className="absolute top-1 left-1 size-5 text-indigo-500">
-                  <path d="M9.664 1.319a.75.75 0 0 1 .672 0 41.059 41.059 0 0 1 8.198 5.424.75.75 0 0 1-.254 1.285 31.372 31.372 0 0 0-7.86 3.83.75.75 0 0 1-.84 0 31.508 31.508 0 0 0-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 0 1 3.305-2.033.75.75 0 0 0-.714-1.319 37 37 0 0 0-3.446 2.12A2.216 2.216 0 0 0 6 9.393v.38a31.293 31.293 0 0 0-4.28-1.746.75.75 0 0 1-.254-1.285 41.059 41.059 0 0 1 8.198-5.424ZM6 11.459a29.848 29.848 0 0 0-2.455-1.158 41.029 41.029 0 0 0-.39 3.114.75.75 0 0 0 .419.74c.528.256 1.046.53 1.554.82-.21.324-.455.63-.739.914a.75.75 0 1 0 1.06 1.06c.37-.369.69-.77.96-1.193a26.61 26.61 0 0 1 3.095 2.348.75.75 0 0 0 .992 0 26.547 26.547 0 0 1 5.93-3.95.75.75 0 0 0 .42-.739 41.053 41.053 0 0 0-.39-3.114 29.925 29.925 0 0 0-5.199 2.801 2.25 2.25 0 0 1-2.514 0c-.41-.275-.826-.541-1.25-.797a6.985 6.985 0 0 1-1.084 3.45 26.503 26.503 0 0 0-1.281-.78A5.487 5.487 0 0 0 6 12v-.54Z" clipRule="evenodd" fillRule="evenodd" />
-                </svg>
-                Always learning.
-              </dt>
-              <dd className="inline">Iure sed ab. Aperiam optio placeat dolor facere. Officiis pariatur eveniet atque et dolor.</dd>
-            </div>
-            <div className="relative pl-9">
-              <dt className="inline font-semibold text-white">
-                <svg viewBox="0 0 20 20" fill="currentColor" className="absolute top-1 left-1 size-5 text-indigo-500">
-                  <path d="M15.98 1.804a1 1 0 0 0-1.96 0l-.24 1.192a1 1 0 0 1-.784.785l-1.192.238a1 1 0 0 0 0 1.962l1.192.238a1 1 0 0 1 .785.785l.238 1.192a1 1 0 0 0 1.962 0l.238-1.192a1 1 0 0 1 .785-.785l1.192-.238a1 1 0 0 0 0-1.962l-1.192-.238a1 1 0 0 1-.785-.785l-.238-1.192ZM6.949 5.684a1 1 0 0 0-1.898 0l-.683 2.051a1 1 0 0 1-.633.633l-2.051.683a1 1 0 0 0 0 1.898l2.051.684a1 1 0 0 1 .633.632l.683 2.051a1 1 0 0 0 1.898 0l.683-2.051a1 1 0 0 1 .633-.633l2.051-.683a1 1 0 0 0 0-1.898l-2.051-.683a1 1 0 0 1-.633-.633L6.95 5.684ZM13.949 13.684a1 1 0 0 0-1.898 0l-.184.551a1 1 0 0 1-.632.633l-.551.183a1 1 0 0 0 0 1.898l.551.183a1 1 0 0 1 .633.633l.183.551a1 1 0 0 0 1.898 0l.184-.551a1 1 0 0 1 .632-.633l.551-.183a1 1 0 0 0 0-1.898l-.551-.184a1 1 0 0 1-.633-.632l-.183-.551Z" />
-                </svg>
-                Share everything you know.
-              </dt>
-              <dd className="inline">Laudantium tempora sint ut consectetur ratione. Ut illum ut rem numquam fuga delectus.</dd>
+              <dd className="inline">Wir unterstützen unsere Kunden und Partner aktiv dabei, ihre Ziele zu erreichen und Herausforderungen zu meistern.</dd>
             </div>
             <div className="relative pl-9">
               <dt className="inline font-semibold text-white">
                 <svg viewBox="0 0 20 20" fill="currentColor" className="absolute top-1 left-1 size-5 text-indigo-500">
                   <path d="M10 2a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 2ZM10 15a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 15ZM10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM15.657 5.404a.75.75 0 1 0-1.06-1.06l-1.061 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM6.464 14.596a.75.75 0 1 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM18 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 18 10ZM5 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 5 10ZM14.596 15.657a.75.75 0 0 0 1.06-1.06l-1.06-1.061a.75.75 0 1 0-1.06 1.06l1.06 1.06ZM5.404 6.464a.75.75 0 0 0 1.06-1.06l-1.06-1.06a.75.75 0 1 0-1.061 1.06l1.06 1.06Z" />
                 </svg>
-                Enjoy downtime.
+                Ausgewogenheit genießen.
               </dt>
-              <dd className="inline">Culpa dolorem voluptatem velit autem rerum qui et corrupti. Quibusdam quo placeat.</dd>
+              <dd className="inline">Wir fördern eine gesunde Work-Life-Balance und schaffen eine Umgebung, in der sich unsere Mitarbeiter entfalten können.</dd>
             </div>
           </dl>
         </div>
@@ -316,56 +298,56 @@ export default function UeberUnsPage() {
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Unser Team</h2>
-            <p className="mt-6 text-lg/8 text-gray-400">Wir sind eine dynamische Gruppe von Individuen, die leidenschaftlich an dem arbeiten, was wir tun, und sich der Bereitstellung der besten Ergebnisse für unsere Kunden widmen.</p>
+            <p className="mt-6 text-lg/8 text-gray-400">Wir sind ein dynamisches Team von Experten, die leidenschaftlich daran arbeiten, Bildungsträgern innovative Lösungen für ihre AZAV-Zertifizierungen zu bieten.</p>
           </div>
           <ul role="list" className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
             <li>
               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Leslie Alexander</h3>
-              <p className="text-base/7 text-gray-300">Co-Founder / CEO</p>
-              <p className="text-sm/6 text-gray-500">Toronto, Canada</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Dr. Sarah Weber</h3>
+              <p className="text-base/7 text-gray-300">Geschäftsführerin</p>
+              <p className="text-sm/6 text-gray-500">München, Deutschland</p>
             </li>
             <li>
               <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Michael Foster</h3>
-              <p className="text-base/7 text-gray-300">Co-Founder / CTO</p>
-              <p className="text-sm/6 text-gray-500">Glasgow, Scotland</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Michael Schmidt</h3>
+              <p className="text-base/7 text-gray-300">Technischer Leiter</p>
+              <p className="text-sm/6 text-gray-500">Berlin, Deutschland</p>
             </li>
             <li>
               <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Dries Vincent</h3>
-              <p className="text-base/7 text-gray-300">Business Relations</p>
-              <p className="text-sm/6 text-gray-500">Niagara Falls, Canada</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">David Wagner</h3>
+              <p className="text-base/7 text-gray-300">Business Development</p>
+              <p className="text-sm/6 text-gray-500">Köln, Deutschland</p>
             </li>
             <li>
               <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Lindsay Walton</h3>
-              <p className="text-base/7 text-gray-300">Front-end Developer</p>
-              <p className="text-sm/6 text-gray-500">London, England</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Lisa Müller</h3>
+              <p className="text-base/7 text-gray-300">Frontend-Entwicklerin</p>
+              <p className="text-sm/6 text-gray-500">Hamburg, Deutschland</p>
             </li>
             <li>
               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Courtney Henry</h3>
-              <p className="text-base/7 text-gray-300">Designer</p>
-              <p className="text-sm/6 text-gray-500">Toronto, Canada</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Claudia Bauer</h3>
+              <p className="text-base/7 text-gray-300">UX-Designerin</p>
+              <p className="text-sm/6 text-gray-500">Stuttgart, Deutschland</p>
             </li>
             <li>
               <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Tom Cook</h3>
-              <p className="text-base/7 text-gray-300">Director of Product</p>
-              <p className="text-sm/6 text-gray-500">Toronto, Canada</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Thomas Klein</h3>
+              <p className="text-base/7 text-gray-300">Produktmanager</p>
+              <p className="text-sm/6 text-gray-500">Düsseldorf, Deutschland</p>
             </li>
             <li>
               <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Whitney Francis</h3>
-              <p className="text-base/7 text-gray-300">Copywriter</p>
-              <p className="text-sm/6 text-gray-500">Toronto, Canada</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Petra Schulz</h3>
+              <p className="text-base/7 text-gray-300">Content Managerin</p>
+              <p className="text-sm/6 text-gray-500">Frankfurt, Deutschland</p>
             </li>
             <li>
               <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" className="aspect-14/13 w-full rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Leonard Krasner</h3>
-              <p className="text-base/7 text-gray-300">Senior Designer</p>
-              <p className="text-sm/6 text-gray-500">Toronto, Canada</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">Lars Hoffmann</h3>
+              <p className="text-base/7 text-gray-300">Senior Entwickler</p>
+              <p className="text-sm/6 text-gray-500">Leipzig, Deutschland</p>
             </li>
           </ul>
         </div>
@@ -377,48 +359,48 @@ export default function UeberUnsPage() {
               <img src="https://images.unsplash.com/photo-1519338381761-c7523edc1f46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="" className="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm" />
               <div className="w-full flex-auto">
                 <h2 className="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">Werden Sie Teil unseres Teams</h2>
-                <p className="mt-6 text-lg/8 text-pretty text-gray-400">Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
+                <p className="mt-6 text-lg/8 text-pretty text-gray-400">Suchen Sie nach einer spannenden Herausforderung in der Bildungsbranche? Wir sind immer auf der Suche nach talentierten Menschen, die unsere Mission unterstützen möchten.</p>
                 <ul role="list" className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 text-gray-200 sm:grid-cols-2">
                   <li className="flex gap-x-3">
                     <svg viewBox="0 0 20 20" fill="currentColor" className="h-7 w-5 flex-none text-gray-200">
                       <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" fillRule="evenodd" />
                     </svg>
-                    Competitive salaries
+                    Wettbewerbsfähige Gehälter
                   </li>
                   <li className="flex gap-x-3">
                     <svg viewBox="0 0 20 20" fill="currentColor" className="h-7 w-5 flex-none text-gray-200">
                       <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" fillRule="evenodd" />
                     </svg>
-                    Flexible work hours
+                    Flexible Arbeitszeiten
                   </li>
                   <li className="flex gap-x-3">
                     <svg viewBox="0 0 20 20" fill="currentColor" className="h-7 w-5 flex-none text-gray-200">
                       <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" fillRule="evenodd" />
                     </svg>
-                    30 days of paid vacation
+                    30 Tage bezahlter Urlaub
                   </li>
                   <li className="flex gap-x-3">
                     <svg viewBox="0 0 20 20" fill="currentColor" className="h-7 w-5 flex-none text-gray-200">
                       <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" fillRule="evenodd" />
                     </svg>
-                    Annual team retreats
+                    Jährliche Team-Events
                   </li>
                   <li className="flex gap-x-3">
                     <svg viewBox="0 0 20 20" fill="currentColor" className="h-7 w-5 flex-none text-gray-200">
                       <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" fillRule="evenodd" />
                     </svg>
-                    Benefits for you and your family
+                    Vorteile für Sie und Familie
                   </li>
                   <li className="flex gap-x-3">
                     <svg viewBox="0 0 20 20" fill="currentColor" className="h-7 w-5 flex-none text-gray-200">
                       <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" fillRule="evenodd" />
                     </svg>
-                    A great work environment
+                    Tolle Arbeitsumgebung
                   </li>
                 </ul>
                 <div className="mt-10 flex">
                   <a href="#" className="text-sm/6 font-semibold text-indigo-400 hover:text-indigo-300">
-                    See our job postings
+                    Unsere Stellenangebote ansehen
                     <span aria-hidden="true">→</span>
                   </a>
                 </div>
@@ -435,8 +417,8 @@ export default function UeberUnsPage() {
       <footer className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-9" />
-            <p className="text-sm/6 text-balance text-gray-400">Making the world a better place through constructing elegant hierarchies.</p>
+            <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur SIA" className="h-9" />
+            <p className="text-sm/6 text-balance text-gray-400">Zertmanufaktur SIA macht die Welt der AZAV-Zertifizierungen einfacher und effizienter durch innovative Technologie.</p>
             <div className="flex gap-x-6">
               <a href="#" className="text-gray-400 hover:text-gray-300">
                 <span className="sr-only">Facebook</span>
@@ -537,7 +519,7 @@ export default function UeberUnsPage() {
           </div>
         </div>
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-sm/6 text-gray-400">&copy; 2024 Zertmanufaktur. Eine Marke der Cert & Consulting SIA. All rights reserved.</p>
+          <p className="text-sm/6 text-gray-400">&copy; 2025 Zertmanufaktur SIA. All rights reserved.</p>
         </div>
       </footer>
     </div>

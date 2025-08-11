@@ -18,8 +18,18 @@ import {
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) {
+    console.error('❌ RESEND_API_KEY ist nicht gesetzt!')
+    console.error('Bitte fügen Sie RESEND_API_KEY zu Ihrer .env.local Datei hinzu.')
     throw new Error('RESEND_API_KEY ist nicht gesetzt')
   }
+  
+  // Überprüfung auf Platzhalter-Werte
+  if (apiKey.includes('placeholder') || apiKey.includes('ihr-resend-api-key')) {
+    console.error('❌ RESEND_API_KEY verwendet Platzhalter-Werte!')
+    console.error('Bitte ersetzen Sie den Platzhalter in Ihrer .env.local Datei mit einem echten Resend API-Schlüssel.')
+    throw new Error('RESEND_API_KEY verwendet Platzhalter')
+  }
+  
   return new Resend(apiKey)
 }
 

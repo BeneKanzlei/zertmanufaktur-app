@@ -42,7 +42,7 @@ export default function ProfileCard() {
           <label htmlFor="photo" className="block text-sm/6 font-medium text-gray-900">Foto</label>
           <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
             <div className="text-center">
-              <img src="/zertmanufaktur-logo.png" alt="Zertmanufaktur Logo" className="mx-auto w-[100px] h-[100px]" />
+              <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur Logo" className="mx-auto w-[100px] h-[100px]" />
               <div className="mt-0 flex text-sm/6 text-gray-600">
                 <label htmlFor="photo-upload" className="relative cursor-pointer rounded-md bg-white font-semibold text-gray-900 focus-within:ring-2 focus-within:ring-gray-900 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-gray-700">
                   <span>Foto hochladen</span>

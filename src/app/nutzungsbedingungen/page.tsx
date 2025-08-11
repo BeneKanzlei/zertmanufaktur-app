@@ -46,7 +46,7 @@ export default function NutzungsbedingungenPage() {
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Zertmanufaktur</span>
-              <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-8 w-auto" />
+              <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-8 w-auto" />
             </Link>
           </div>
           <div className="flex lg:hidden flex-shrink-0">
@@ -89,7 +89,7 @@ export default function NutzungsbedingungenPage() {
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Zertmanufaktur</span>
-                <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-8 w-auto" />
+                <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-8 w-auto" />
               </Link>
               <button 
                 type="button" 
@@ -166,7 +166,7 @@ export default function NutzungsbedingungenPage() {
             </div>
           </div>
           <div className="mt-24 border-t border-gray-900/10 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
-            <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-9" />
+            <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-9" />
             <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
@@ -266,7 +266,7 @@ export default function NutzungsbedingungenPage() {
                 </svg>
               </a>
             </div>
-            <p className="mt-8 text-sm/6 text-gray-600 md:order-1 md:mt-0">&copy; 2024 Zertmanufaktur. Eine Marke der Cert & Consulting SIA. All rights reserved.</p>
+            <p className="mt-8 text-sm/6 text-gray-600 md:order-1 md:mt-0">&copy; 2025 Zertmanufaktur SIA. All rights reserved.</p>
           </div>
         </div>
       </footer>

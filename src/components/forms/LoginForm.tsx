@@ -3,13 +3,19 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { signIn } from '@/lib/supabase'
-import Logo from '../shared/Logo'
+import { signIn, supabase } from '@/lib/supabase'
+
+import CompanyRegistrationModal from '../CompanyRegistrationModal'
+import { CompanyFormData } from '@/types'
 
 export default function LoginForm() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const [showCompanyModal, setShowCompanyModal] = useState(false)
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null)
+  const [currentUserProfile, setCurrentUserProfile] = useState<any>(null)
+  const [isSavingCompany, setIsSavingCompany] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -75,6 +81,39 @@ export default function LoginForm() {
         }
         
         console.log('Weiterleitung zur Dashboard...')
+        
+        // Prüfen, ob Benutzer Firmendaten erfassen muss
+        if (data?.user) {
+          try {
+            console.log('🔍 Prüfe Registrierungsstatus direkt...')
+            
+            // Direkte Supabase-Abfrage statt API-Route
+            const { data: profile, error } = await supabase
+              .from('profiles')
+              .select('*')
+              .eq('id', data.user.id)
+              .single()
+            
+            console.log('📋 Profil-Abfrage Ergebnis:', { profile, error })
+            
+            if (error) {
+              console.error('❌ Fehler beim Abrufen des Profils:', error)
+              // Bei Fehler trotzdem zur Dashboard weiterleiten
+            } else if (profile && profile.is_registration === true) {
+              console.log('🏢 Benutzer muss Firmendaten erfassen')
+              setCurrentUserId(data.user.id)
+              setCurrentUserProfile(profile)
+              setShowCompanyModal(true)
+              return // Nicht zur Dashboard weiterleiten
+            } else {
+              console.log('✅ Benutzer hat bereits Firmendaten erfasst')
+            }
+          } catch (statusError) {
+            console.error('Fehler beim Prüfen des Registrierungsstatus:', statusError)
+            // Bei Fehler trotzdem zur Dashboard weiterleiten
+          }
+        }
+        
         // Weiterleitung zur Dashboard
         router.push('/dashboard')
       }
@@ -94,10 +133,57 @@ export default function LoginForm() {
     }))
   }
 
+  const handleCompanySubmit = async (companyData: CompanyFormData) => {
+    if (!currentUserId) {
+      console.error('❌ Keine Benutzer-ID verfügbar')
+      return
+    }
+
+    setIsSavingCompany(true)
+    
+    try {
+      console.log('🏢 Speichere Firmendaten...')
+      
+      const response = await fetch('/api/company-registration', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...companyData,
+          userId: currentUserId,
+        }),
+      })
+      
+      const result = await response.json()
+      
+      if (response.ok) {
+        console.log('✅ Firmendaten erfolgreich gespeichert')
+        setShowCompanyModal(false)
+        setCurrentUserId(null)
+        // Weiterleitung zur Dashboard
+        router.push('/dashboard')
+      } else {
+        console.error('❌ Fehler beim Speichern der Firmendaten:', result.error)
+        alert(`Fehler beim Speichern der Firmendaten: ${result.error}`)
+      }
+    } catch (error) {
+      console.error('❌ Unerwarteter Fehler beim Speichern der Firmendaten:', error)
+      alert('Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.')
+    } finally {
+      setIsSavingCompany(false)
+    }
+  }
+
+  const handleCloseModal = () => {
+    setShowCompanyModal(false)
+    setCurrentUserId(null)
+    // Bei Abbruch trotzdem zur Dashboard weiterleiten
+    router.push('/dashboard')
+  }
+
   return (
     <>
-      <Logo />
-      
       <div>
         <h2 className="mt-8 text-2xl font-bold tracking-tight text-gray-900">
           Im Konto anmelden
@@ -218,6 +304,15 @@ export default function LoginForm() {
           </form>
         </div>
       </div>
+
+      {/* Company Registration Modal */}
+              <CompanyRegistrationModal
+          isOpen={showCompanyModal}
+          onClose={handleCloseModal}
+          onSubmit={handleCompanySubmit}
+          isLoading={isSavingCompany}
+          userProfile={currentUserProfile}
+        />
     </>
   )
 } 

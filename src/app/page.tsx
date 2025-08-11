@@ -12,6 +12,15 @@ export default function HomePage() {
   const [isBannerVisible, setIsBannerVisible] = useState(true)
   const [isBottomBannerVisible, setIsBottomBannerVisible] = useState(true)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [openFaqItems, setOpenFaqItems] = useState<number[]>([])
+
+  const toggleFaqItem = (index: number) => {
+    setOpenFaqItems(prev => 
+      prev.includes(index) 
+        ? prev.filter(item => item !== index)
+        : [...prev, index]
+    )
+  }
 
   useEffect(() => {
     const checkAuthStatus = async () => {
@@ -50,7 +59,7 @@ export default function HomePage() {
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Zertmanufaktur</span>
-              <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-8 w-auto" />
+              <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-8 w-auto" />
             </Link>
           </div>
           <div className="flex lg:hidden flex-shrink-0">
@@ -93,7 +102,7 @@ export default function HomePage() {
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Zertmanufaktur</span>
-                <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-8 w-auto" />
+                <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-8 w-auto" />
               </Link>
               <button 
                 type="button" 
@@ -158,12 +167,12 @@ export default function HomePage() {
           </div>
           <div className="overflow-hidden h-full">
             <div className="mx-auto max-w-7xl px-6 h-full flex items-center lg:px-8">
-              <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center h-full">
+              <div className="mx-auto w-full gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center h-full">
                 <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                  <h1 className="text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl max-w-[100ch]">
+                  <h1 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-7xl w-full px-4 sm:px-0 sm:max-w-[70ch] lg:max-w-[100ch] leading-tight mt-24 sm:mt-0">
                     Wir verändern die Art, wie Menschen sich weiterbilden
                   </h1>
-                  <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none max-w-[100ch]">
+                  <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none w-full px-4 sm:px-0 sm:max-w-[65ch] lg:max-w-[100ch] leading-relaxed">
                     Professionelle AZAV-Kalkulationen mit Buch der Berufe und BDKS-Rahmen. 
                     Starten Sie Ihre Karriere mit unserer bewährten Plattform für Zertifizierungen.
                   </p>
@@ -698,93 +707,177 @@ export default function HomePage() {
             <dl className="mt-16 divide-y divide-white/10">
               <div className="py-6 first:pt-0 last:pb-0">
                 <dt>
-                  <button type="button" className="flex w-full items-start justify-between text-left text-white">
+                  <button 
+                    type="button" 
+                    className="flex w-full items-start justify-between text-left text-white"
+                    onClick={() => toggleFaqItem(0)}
+                  >
                     <span className="text-base/7 font-semibold">What's the best thing about Switzerland?</span>
                     <span className="ml-6 flex h-7 items-center">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6">
+                      <svg 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="1.5" 
+                        data-slot="icon" 
+                        aria-hidden="true" 
+                        className={`size-6 transition-transform duration-200 ${openFaqItems.includes(0) ? 'rotate-45' : ''}`}
+                      >
                         <path d="M12 6v12m6-6H6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </button>
                 </dt>
-                <dd className="mt-2 pr-12">
-                  <p className="text-base/7 text-gray-400">I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
-                </dd>
+                {openFaqItems.includes(0) && (
+                  <dd className="mt-2 pr-12">
+                    <p className="text-base/7 text-gray-400">I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+                  </dd>
+                )}
               </div>
               <div className="py-6 first:pt-0 last:pb-0">
                 <dt>
-                  <button type="button" className="flex w-full items-start justify-between text-left text-white">
+                  <button 
+                    type="button" 
+                    className="flex w-full items-start justify-between text-left text-white"
+                    onClick={() => toggleFaqItem(1)}
+                  >
                     <span className="text-base/7 font-semibold">How do you make holy water?</span>
                     <span className="ml-6 flex h-7 items-center">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6">
+                      <svg 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="1.5" 
+                        data-slot="icon" 
+                        aria-hidden="true" 
+                        className={`size-6 transition-transform duration-200 ${openFaqItems.includes(1) ? 'rotate-45' : ''}`}
+                      >
                         <path d="M12 6v12m6-6H6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </button>
                 </dt>
-                <dd className="mt-2 pr-12">
-                  <p className="text-base/7 text-gray-400">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.</p>
-                </dd>
+                {openFaqItems.includes(1) && (
+                  <dd className="mt-2 pr-12">
+                    <p className="text-base/7 text-gray-400">You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.</p>
+                  </dd>
+                )}
               </div>
               <div className="py-6 first:pt-0 last:pb-0">
                 <dt>
-                  <button type="button" className="flex w-full items-start justify-between text-left text-white">
+                  <button 
+                    type="button" 
+                    className="flex w-full items-start justify-between text-left text-white"
+                    onClick={() => toggleFaqItem(2)}
+                  >
                     <span className="text-base/7 font-semibold">What do you call someone with no body and no nose?</span>
                     <span className="ml-6 flex h-7 items-center">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6">
+                      <svg 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="1.5" 
+                        data-slot="icon" 
+                        aria-hidden="true" 
+                        className={`size-6 transition-transform duration-200 ${openFaqItems.includes(2) ? 'rotate-45' : ''}`}
+                      >
                         <path d="M12 6v12m6-6H6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </button>
                 </dt>
-                <dd className="mt-2 pr-12">
-                  <p className="text-base/7 text-gray-400">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.</p>
-                </dd>
+                {openFaqItems.includes(2) && (
+                  <dd className="mt-2 pr-12">
+                    <p className="text-base/7 text-gray-400">Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.</p>
+                  </dd>
+                )}
               </div>
               <div className="py-6 first:pt-0 last:pb-0">
                 <dt>
-                  <button type="button" className="flex w-full items-start justify-between text-left text-white">
+                  <button 
+                    type="button" 
+                    className="flex w-full items-start justify-between text-left text-white"
+                    onClick={() => toggleFaqItem(3)}
+                  >
                     <span className="text-base/7 font-semibold">Why do you never see elephants hiding in trees?</span>
                     <span className="ml-6 flex h-7 items-center">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6">
+                      <svg 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="1.5" 
+                        data-slot="icon" 
+                        aria-hidden="true" 
+                        className={`size-6 transition-transform duration-200 ${openFaqItems.includes(3) ? 'rotate-45' : ''}`}
+                      >
                         <path d="M12 6v12m6-6H6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </button>
                 </dt>
-                <dd className="mt-2 pr-12">
-                  <p className="text-base/7 text-gray-400">Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
-                </dd>
+                {openFaqItems.includes(3) && (
+                  <dd className="mt-2 pr-12">
+                    <p className="text-base/7 text-gray-400">Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+                  </dd>
+                )}
               </div>
               <div className="py-6 first:pt-0 last:pb-0">
                 <dt>
-                  <button type="button" className="flex w-full items-start justify-between text-left text-white">
+                  <button 
+                    type="button" 
+                    className="flex w-full items-start justify-between text-left text-white"
+                    onClick={() => toggleFaqItem(4)}
+                  >
                     <span className="text-base/7 font-semibold">Why can't you hear a pterodactyl go to the bathroom?</span>
                     <span className="ml-6 flex h-7 items-center">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6">
+                      <svg 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="1.5" 
+                        data-slot="icon" 
+                        aria-hidden="true" 
+                        className={`size-6 transition-transform duration-200 ${openFaqItems.includes(4) ? 'rotate-45' : ''}`}
+                      >
                         <path d="M12 6v12m6-6H6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </button>
                 </dt>
-                <dd className="mt-2 pr-12">
-                  <p className="text-base/7 text-gray-400">Because the pee is silent. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quas voluptatibus ex culpa ipsum, aspernatur blanditiis fugiat ullam magnam suscipit deserunt illum natus facilis atque vero consequatur! Quisquam, debitis error.</p>
-                </dd>
+                {openFaqItems.includes(4) && (
+                  <dd className="mt-2 pr-12">
+                    <p className="text-base/7 text-gray-400">Because the pee is silent. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quas voluptatibus ex culpa ipsum, aspernatur blanditiis fugiat ullam magnam suscipit deserunt illum natus facilis atque vero consequatur! Quisquam, debitis error.</p>
+                  </dd>
+                )}
               </div>
               <div className="py-6 first:pt-0 last:pb-0">
                 <dt>
-                  <button type="button" className="flex w-full items-start justify-between text-left text-white">
+                  <button 
+                    type="button" 
+                    className="flex w-full items-start justify-between text-left text-white"
+                    onClick={() => toggleFaqItem(5)}
+                  >
                     <span className="text-base/7 font-semibold">Why did the invisible man turn down the job offer?</span>
                     <span className="ml-6 flex h-7 items-center">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6">
+                      <svg 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="1.5" 
+                        data-slot="icon" 
+                        aria-hidden="true" 
+                        className={`size-6 transition-transform duration-200 ${openFaqItems.includes(5) ? 'rotate-45' : ''}`}
+                      >
                         <path d="M12 6v12m6-6H6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </button>
                 </dt>
-                <dd className="mt-2 pr-12">
-                  <p className="text-base/7 text-gray-400">He couldn't see himself doing it. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet perspiciatis officiis corrupti tenetur. Temporibus ut voluptatibus, perferendis sed unde rerum deserunt eius.</p>
-                </dd>
+                {openFaqItems.includes(5) && (
+                  <dd className="mt-2 pr-12">
+                    <p className="text-base/7 text-gray-400">He couldn't see himself doing it. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet perspiciatis officiis corrupti tenetur. Temporibus ut voluptatibus, perferendis sed unde rerum deserunt eius.</p>
+                  </dd>
+                )}
               </div>
             </dl>
           </div>
@@ -829,7 +922,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="mt-24 border-t border-gray-900/10 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
-            <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-9" />
+                          <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-9" />
             <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
@@ -929,7 +1022,7 @@ export default function HomePage() {
                 </svg>
               </a>
             </div>
-            <p className="mt-8 text-sm/6 text-gray-600 md:order-1 md:mt-0">&copy; 2024 Zertmanufaktur. Eine Marke der Cert & Consulting SIA. All rights reserved.</p>
+            <p className="mt-8 text-sm/6 text-gray-600 md:order-1 md:mt-0">&copy; 2025 Zertmanufaktur SIA. All rights reserved.</p>
           </div>
         </div>
       </footer>

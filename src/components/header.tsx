@@ -1,6 +1,10 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { supabase } from '@/lib/supabase'
 import Breadcrumb from './breadcrumb'
+import Logo from './Logo'
 
 interface HeaderProps {
   onSidebarToggle: () => void
@@ -8,6 +12,67 @@ interface HeaderProps {
 }
 
 export default function Header({ onSidebarToggle, breadcrumbItems }: HeaderProps) {
+  const router = useRouter()
+  const [userProfile, setUserProfile] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  useEffect(() => {
+    const loadUserProfile = async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser()
+        if (user) {
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('first_name, last_name, avatar_url, email')
+            .eq('id', user.id)
+            .single()
+          
+          setUserProfile(profile)
+        }
+      } catch (error) {
+        console.error('Fehler beim Laden des Benutzerprofils:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    loadUserProfile()
+  }, [])
+
+  const displayName = userProfile?.first_name || 'Benutzer'
+
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut()
+      if (error) {
+        console.error('Fehler beim Abmelden:', error.message)
+      } else {
+        router.push('/login')
+      }
+    } catch (error) {
+      console.error('Unerwarteter Fehler beim Abmelden:', error)
+    }
+  }
+
+  // Schließe Dropdown beim Klick außerhalb
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element
+      if (!target.closest('.user-dropdown')) {
+        setIsDropdownOpen(false)
+      }
+    }
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isDropdownOpen])
+
   return (
     <div className="sticky top-0 z-40 flex flex-col border-b border-gray-200 bg-white">
       {/* Breadcrumbs */}
@@ -29,6 +94,10 @@ export default function Header({ onSidebarToggle, breadcrumbItems }: HeaderProps
         </button>
 
         <div className="h-6 w-px bg-gray-200 lg:hidden"></div>
+
+        <div className="flex items-center">
+          <Logo size={40} className="h-8 w-auto" showContainer={false} />
+        </div>
 
         <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
           <form action="#" method="GET" className="grid flex-1 grid-cols-1">
@@ -53,22 +122,64 @@ export default function Header({ onSidebarToggle, breadcrumbItems }: HeaderProps
 
             <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"></div>
 
-            <div className="relative">
-              <button className="relative flex items-center">
-                <span className="absolute -inset-1.5"></span>
-                <span className="sr-only">Open user menu</span>
+            <div className="relative user-dropdown">
+              <button 
+                className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-50"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
                 <img
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                  className="size-8 rounded-full bg-gray-50"
+                  src={userProfile?.avatar_url || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
+                  alt={`${displayName} Avatar`}
+                  className="size-6 rounded-full bg-gray-50 object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  }}
                 />
-                <span className="hidden lg:flex lg:items-center">
-                  <span aria-hidden="true" className="ml-4 text-sm font-semibold text-gray-900">Benutzer</span>
-                  <svg viewBox="0 0 20 20" fill="currentColor" className="ml-2 size-5 text-gray-400">
-                    <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" fillRule="evenodd" />
-                  </svg>
+                <span className="hidden lg:block">
+                  {isLoading ? 'Laden...' : displayName}
                 </span>
+                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="-mr-1 size-5 text-gray-400">
+                  <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" fillRule="evenodd" />
+                </svg>
               </button>
+
+              {/* Dropdown Menu */}
+              {isDropdownOpen && (
+                <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg outline-1 outline-black/5 focus:outline-none transition-all duration-100 ease-out">
+                  <div className="px-4 py-3">
+                    <p className="text-sm text-gray-700">Eingeloggt als</p>
+                    <p className="truncate text-sm font-medium text-gray-900">{userProfile?.email || 'Benutzer'}</p>
+                  </div>
+                  <div className="py-1">
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        setIsDropdownOpen(false)
+                        router.push('/einstellungen')
+                      }}
+                      className="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden"
+                    >
+                      Einstellungen
+                    </a>
+                  </div>
+                  <div className="py-1">
+                    <form action="#" method="POST">
+                      <button
+                        type="submit"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          setIsDropdownOpen(false)
+                          handleLogout()
+                        }}
+                        className="block w-full px-4 py-2 text-left text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden"
+                      >
+                        Abmelden
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

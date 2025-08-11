@@ -46,7 +46,7 @@ export default function FeaturesPage() {
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Zertmanufaktur</span>
-              <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-8 w-auto" />
+              <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-8 w-auto" />
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -89,7 +89,7 @@ export default function FeaturesPage() {
               <div className="flex items-center justify-between">
                 <Link href="/" className="-m-1.5 p-1.5">
                   <span className="sr-only">Zertmanufaktur</span>
-                  <img src="/Logo_header.png" alt="Zertmanufaktur" className="h-8 w-auto" />
+                  <img src="/Zertmanufaktur.svg" alt="Zertmanufaktur" className="h-8 w-auto" />
                 </Link>
                 <button 
                   type="button" 
